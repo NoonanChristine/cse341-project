@@ -35,14 +35,12 @@ const requestHandler = (req, res) => {
         return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             console.log(parsedBody.split('=')[1]);
-            res.setHeader('Location', '/users')
+            res.setHeader('Location', '/create-user')
             res.setHeader('Content-Type', 'text/html');
             res.write('<html>');
             res.write('<head><title>Users</title></head>');
             res.write('<body>')
-            res.write('<h1>List of Dummy Users:</h1>')
-            res.write('<ul><li>User 1</li></ul><ul><li>User 2</li></ul>')
-            res.write('<h1>Returning the List of Users: </h1>')
+            res.write('<h1>List of Users: </h1>')
             res.write('<ul>')
             res.write('<li>')
             res.write(parsedBody.split('=')[1]);
